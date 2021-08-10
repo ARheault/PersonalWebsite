@@ -24,7 +24,7 @@ app.get('/Resume', (req, res) => {
 	res.sendFile(path.join(__dirname, "public/resume.html"));
 })
 */
-app.use(express.static(__dirname, "/public/"));
+app.use(express.static(__dirname, "/public"));
 const expressServer = app.listen(port, () => {
 	console.log("Server Started");
 })
