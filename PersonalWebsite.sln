@@ -5,6 +5,12 @@ VisualStudioVersion = 16.0.31515.178
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "PersonalWebsite", "PersonalWebsite\PersonalWebsite.njsproj", "{8E706E69-9133-4E61-B20B-8513BFC6B4F5}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F54BAC73-15AD-495B-BC79-AED71828B928}"
+	ProjectSection(SolutionItems) = preProject
+		PersonalWebsite\public\index.html = PersonalWebsite\public\index.html
+		PersonalWebsite\public\css\styles.css = PersonalWebsite\public\css\styles.css
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
