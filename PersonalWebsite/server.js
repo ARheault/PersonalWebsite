@@ -23,6 +23,10 @@ app.get('/Resume', (req, res) => {
 	res.sendFile(path.join(__dirname, "public/resume.html"));
 })
 
+app.get('*', (req, res) => {
+	res.sendFile(path.join(__dirname, "public/404.html"));
+})
+
 const expressServer = app.listen(port, () => {
 	console.log("Server Started");
 })
