@@ -3,3 +3,8 @@ h1 {
     font-size: 200%;
     text-align: center;
 }
+
+main {
+    width: 90%;
+    margin: auto;
+}
