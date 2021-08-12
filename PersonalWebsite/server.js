@@ -6,7 +6,9 @@ var port = process.env.PORT || 1337;
 
 const app = express();
 
-app.use(express.static(path.join(__dirname, "public/")));
+app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "public/css")));
+
 //app.use(express.static(path.join(__dirname,'public/styles/')));
 
 app.get('/', (req, res) => {
@@ -25,6 +27,11 @@ app.get('/Projects', (req, res) => {
 app.get('/Resume', (req, res) => {
 	res.sendFile(path.join(__dirname, "public/resume.html"));
 })
+
+/*app.get('/public/css/styles.css', (req, res) => {
+	res.sendFile(path.join(__dirname, "public/css/styles.css"));
+}) */
+
 
 /*app.get('*', (req, res) => {
 	res.sendFile(path.join(__dirname, "public/404.html"));
