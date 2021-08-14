@@ -12,15 +12,17 @@ h1 {
 ul {
     display: block;
     margin: 0 auto;
-    width: 100%;
+    width: 100vw;
     padding: 0;
+    border-style: solid;
 }
 
 li {
     display: inline-block;
     font-size: 2em;
-    width: 33%;
-    border-style: solid;
+    width: 15vw;
+    height 10vh;
+    border-right: 2px solid;
     border-radius: 5px;
     text-align: center;
 }
