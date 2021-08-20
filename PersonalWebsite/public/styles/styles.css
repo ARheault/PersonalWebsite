@@ -55,10 +55,19 @@ p, a {
     margin-bottom: 0px;
 }
 
+.Hero > img {
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
 .BladeDivider {
     width: 90vw;
     margin: auto;
     margin-bottom: 0px;
     height: 10px;
     background-color: #606060;
+}
+
+.Hero, .SkillBlade, .Languages, .BladeDivider {
+    border-radius: 5px;
 }
