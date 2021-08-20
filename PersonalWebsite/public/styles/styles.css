@@ -34,7 +34,7 @@ nav > ul > li > a {
     color: white;
 }
 
-.Hero {
+.Hero, .SkillBlade, .Languages {
     width: 90%;
     height: 50%;
     margin: 0 auto;
@@ -42,6 +42,12 @@ nav > ul > li > a {
     border-radius: 5px;
 }
 
+.SkillBlade, .Languages {
+   
+}
+
 p, a {
     color: whitesmoke;
 }  
+
+
