@@ -19,7 +19,7 @@ nav > ul {
     background-color: dimgray;
 }
 
-nav > li {
+nav > ul > li {
     display: inline-block;
     font-size: 2em;
     width: 15vw;
@@ -30,7 +30,7 @@ nav > li {
     color: white;
 }
 
-nav > li > a {
+nav > li > ul > a {
     color: white;
 }
 
