@@ -9,7 +9,7 @@ h1 {
     text-align: center;
 }
 
-ul {
+nav > ul {
     display: block;
     margin: 0 auto;
     width: 100%;
@@ -19,7 +19,7 @@ ul {
     background-color: dimgray;
 }
 
-li {
+nav > li {
     display: inline-block;
     font-size: 2em;
     width: 15vw;
@@ -30,6 +30,13 @@ li {
     color: white;
 }
 
-li > a {
+nav > li > a {
     color: white;
+}
+
+.Hero {
+    width: 90%;
+    height: 50%;
+    margin: 0 auto;
+    background-color: black;
 }
