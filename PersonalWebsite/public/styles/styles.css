@@ -39,6 +39,7 @@ nav > ul > li > a {
     height: 50%;
     margin: 0 auto;
     background-color: black;
+    border-radius: 5px;
 }
 
 p, a {
