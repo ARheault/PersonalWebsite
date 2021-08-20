@@ -35,8 +35,8 @@ nav > ul > li > a {
 }
 
 .Hero, .SkillBlade, .Languages {
-    width: 90%;
-    height: 50%;
+    width: 90vw;
+    height: fit-content;
     margin: 0 auto;
     background-color: black;
     border-radius: 5px;
