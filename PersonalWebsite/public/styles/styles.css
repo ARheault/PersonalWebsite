@@ -44,7 +44,7 @@ nav > ul > li > a {
 }
 
 .Skills, .Languages {
-    display: inline-block;
+    display: inline;
     width: 50%;
     height: fit-content;
     margin: 0 auto;
