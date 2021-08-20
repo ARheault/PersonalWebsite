@@ -39,7 +39,8 @@ nav > li > a {
     height: 50%;
     margin: 0 auto;
     background-color: black;
-    &p{
-          color: whitesmoke;
-      }
 }
+
+p, a {
+    color: whitesmoke;
+}  
