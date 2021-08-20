@@ -40,6 +40,7 @@ nav > ul > li > a {
     margin: 0 auto;
     background-color: black;
     border-radius: 5px;
+    margin-bottom: 10px;
 }
 
 .SkillBlade, .Languages {
@@ -48,6 +49,7 @@ nav > ul > li > a {
 
 p, a {
     color: whitesmoke;
+    margin-bottom: 0;
 }  
 
 
