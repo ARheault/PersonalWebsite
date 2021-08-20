@@ -49,7 +49,10 @@ nav > ul > li > a {
 
 p, a {
     color: whitesmoke;
-    margin-bottom: 0;
-}  
+}
+
+.Hero > p {
+    margin-bottom: 0px;
+}
 
 
