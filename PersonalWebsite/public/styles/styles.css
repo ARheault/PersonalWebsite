@@ -40,7 +40,7 @@ nav > ul > li > a {
     margin: 0 auto;
     background-color: black;
     border-radius: 5px;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
 }
 
 .SkillBlade, .Languages {
@@ -55,4 +55,10 @@ p, a {
     margin-bottom: 0px;
 }
 
-
+.BladeDivider {
+    width: 90vw;
+    margin: auto;
+    margin-bottom: 0px;
+    height: 10px;
+    background-color: whitesmoke;
+}
