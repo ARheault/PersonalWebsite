@@ -34,7 +34,7 @@ nav > ul > li > a {
     color: white;
 }
 
-.Hero, .SkillBlade, .Languages {
+.Hero, .SkillBlade{
     width: 90vw;
     height: fit-content;
     margin: 0 auto;
@@ -43,8 +43,14 @@ nav > ul > li > a {
     margin-bottom: 0px;
 }
 
-.SkillBlade, .Languages {
-   
+.Skills, .Languages {
+    display: inline-block;
+    width: 45vw;
+    height: fit-content;
+    margin: 0 auto;
+    background-color: black;
+    border-radius: 5px;
+    margin-bottom: 0px;
 }
 
 p, a {
