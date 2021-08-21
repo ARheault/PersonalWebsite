@@ -54,10 +54,6 @@ nav > ul {
     margin-bottom: 0px;
 }
 
-.SkillBlade {
-    display: flex;
-}
-
 .Skills, .Languages {
     display: flex;
     width: 50%;
