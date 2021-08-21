@@ -2,45 +2,54 @@ let form = document.querySelector("#form");
 
 form.addEventListener("submit", handleSubmit);
 
-function handleSubmit(event) {
+async function handleSubmit(event) {
     event.preventDefault();
 
-    let First = document.querySelector("#First").value;
-    let Last = document.querySelector("#Last").value;
-    let Email = document.querySelector("#Email").value;
-    let Message = document.querySelector("#Message").value;
-    let Pronouns = getPronouns();
+    let _First = document.querySelector("#_First").value;
+    let _Last = document.querySelector("#_Last").value;
+    let _Email = document.querySelector("#_Email").value;
+    let _Message = document.querySelector("#_Message").value;
+    let _Pronouns = get_Pronouns();
     console.group("========= Form Submission =========");
-    console.log(`First Name: ${First}`);
-    console.log(`Last Name: ${Last}`);
-    console.log(`Email: ${Email}`);
-    console.log(`Pronouns: ${Pronouns}`);
-    console.log(`Message: ${Message}`);
+    console.log(`_First Name: ${_First}`);
+    console.log(`_Last Name: ${_Last}`);
+    console.log(`_Email: ${_Email}`);
+    console.log(`_Pronouns: ${_Pronouns}`);
+    console.log(`_Message: ${_Message}`);
     console.groupEnd("===================================");
 
     const submission = {
-        First,
-        Last,
-        Email,
-        Pronouns,
-        Message
+        _First,
+        _Last,
+        _Email,
+        _Pronouns,
+        _Message
     };
 
-    async () => {
-        const res = await fetch("/SubmitContact", {
-            method: "POST",
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(submission)
-        });
+    const res = await fetch("/SubmitContact", {
+        method: "POST",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            First: _First,
+            Last: _Last,
+            Email: _Email,
+            Pronouns: _Pronouns,
+            Message: _Message
+        })
+    })
+        .then((response) => {
+            return response.json();
+        })
+        .then((result) => {
+            console.log(result);
+        })
+        .catch((err) => console.log(err));
 
-        const response = await res.json();
-
-        console.log(response);
-    }
- }
+    console.log(res);
+}
 
 let getPronouns = () => {
     if (document.querySelector("#HeHim").checked) {
