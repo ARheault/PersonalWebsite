@@ -9,60 +9,82 @@ h1 {
     text-align: center;
 }
 
+h3 {
+    color: whitesmoke;
+    text-decoration: underline;
+    font-size: 2vw;
+}
+
 nav > ul {
     display: block;
     margin: 0 auto;
     width: 100%;
     padding: 0;
     border-style: solid;
-    border-block-color: white;
+    border-block-color: black;
     background-color: dimgray;
 }
 
-nav > ul > li {
-    display: inline-block;
-    font-size: 2em;
-    width: 15vw;
-    height 10vh;
-    border-right: 2px solid;
-    border-radius: 3px;
-    text-align: center;
-    color: white;
+    nav > ul > li {
+        display: inline-block;
+        font-size: 2em;
+        width: 15vw;
+        height 10vh;
+        border-right: 2px solid;
+        border-radius: 3px;
+        text-align: center;
+        color: black;
+    }
+
+        nav > ul > li > a {
+            color: white;
+        }
+
+.Hero, .SkillBlade, .Languages, .BladeDivider {
+    border-radius: 5px;
 }
 
-nav > ul > li > a {
-    color: white;
-}
-
-.Hero, .SkillBlade{
+.Hero, .SkillBlade, .Contact {
     width: 90vw;
     height: fit-content;
+    min-height: 200px;
     margin: 0 auto;
     background-color: black;
     border-radius: 5px;
     margin-bottom: 0px;
 }
 
+.SkillBlade {
+    display: flex;
+}
+
 .Skills, .Languages {
-    display: inline;
-    width: 200px;
-    height: fit-content;
+    display: flex;
+    width: 50%;
     background-color: black;
     border-radius: 5px;
     margin-bottom: 0px;
 }
 
-p, a {
+p, a, li, label {
     color: whitesmoke;
+    font-size: 1.5vw;
 }
 
-.Hero > p {
+.Hero > div > p {
+    padding-top: 50px;
     margin-bottom: 0px;
 }
 
+.Hero > .description {
+    display: inline;
+}
+
 .Hero > img {
-    border-radius: 5px;
+    display: inline-block;
+    border-radius: 100px;
     margin-right: 20px;
+    float: left;
 }
 
 .BladeDivider {
@@ -73,6 +95,45 @@ p, a {
     background-color: #606060;
 }
 
-.Hero, .SkillBlade, .Languages, .BladeDivider {
-    border-radius: 5px;
+.SkillBlade > div > ul {
+    list-style: none;
+}
+
+    .SkillBlade > div > ul > li::before {
+        content: "-";
+        color: whitesmoke;
+        display: inline-block;
+        width: 1em;
+        margin-left: -1em;
+    }
+
+.SkillBlade > .Skills {
+    justify-content: center;
+    margin-left: 15%;
+    margin-right: 10%;
+}
+
+.Contact {
+    padding-top: 40px;
+}
+
+    .Contact > label {
+        display: block;
+        margin-left: 40%;
+    }
+
+a:link, a:visited, a:hover, a:active {
+    text-decoration: none;
+}
+
+a:hover {
+    color: lightgray;
+}
+
+a:visited {
+    color: dimgray;
+}
+
+nav > ul > li > a:hover {
+    color: whitesmoke;
 }
