@@ -74,7 +74,7 @@ app.post('/SubmitContact', (req, res) => {
     }
     Mailing.sendMail(options, (err, res) => {
         if (err) {
-            res.json({ err: `${err}`);
+            res.json({ success: "false");
             Mailing.close();
 
         } else {
