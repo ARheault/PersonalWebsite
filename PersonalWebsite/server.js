@@ -37,7 +37,7 @@ app.get('/Contact', (req, res) => {
 
 app.post('/SubmitContact', (req, res) => {
 	console.log('Form Submission:', req.body);
-	res.json({message: 'Recieved'})
+	res.json({req.body})
 });
 
 const expressServer = app.listen(port, () => {

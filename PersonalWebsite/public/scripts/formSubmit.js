@@ -47,8 +47,6 @@ async function handleSubmit(event) {
             console.log(result);
         })
         .catch((err) => console.log(err));
-
-    console.log(res);
 }
 
 let getPronouns = () => {
