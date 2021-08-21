@@ -26,10 +26,21 @@ function handleSubmit(event) {
         Message
     };
 
-    $.post('/SubmitContact', submission, () => {
-        console.log("Submitting form for server");
-    });
-}
+    async () => {
+        const res = await fetch("/SubmitContact", {
+            method: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: submission
+        });
+
+        const response = await res.json();
+
+        console.log(response);
+    }
+ }
 
 let getPronouns = () => {
     if (document.querySelector("#HeHim").checked) {
