@@ -9,7 +9,7 @@ async function handleSubmit(event) {
     let _Last = document.querySelector("#Last").value;
     let _Email = document.querySelector("#Email").value;
     let _Message = document.querySelector("#Message").value;
-    let _Pronouns = get_Pronouns();
+    let _Pronouns = getPronouns();
     console.group("========= Form Submission =========");
     console.log(`First Name: ${_First}`);
     console.log(`Last Name: ${_Last}`);
