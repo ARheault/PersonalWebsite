@@ -44,7 +44,7 @@ nav > ul {
     border-radius: 5px;
 }
 
-.Hero, .SkillBlade, .Contact {
+.Hero, .SkillBlade, .Contact, .About {
     width: 90vw;
     height: fit-content;
     min-height: 200px;
@@ -141,4 +141,16 @@ nav > ul > li > a:hover, nav > ul > li > a:visited, nav > ul > li > a:active, na
 iframe {
     height: 80vh;
     width: 100%;
+}
+
+.About {
+    padding-bottom: 15px;
+}
+.About > h3 {
+    text-align: center;
+    font-size: 300%;
+}
+
+.About > p {
+    margin: 20px;
 }
