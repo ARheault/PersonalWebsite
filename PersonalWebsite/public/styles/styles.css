@@ -44,7 +44,7 @@ nav > ul {
     border-radius: 5px;
 }
 
-.Hero, .SkillBlade, .Contact, .About {
+.Blade, .Hero, .SkillBlade, .Contact, .About, .Header {
     width: 90vw;
     height: fit-content;
     min-height: 200px;
@@ -68,7 +68,7 @@ nav > ul {
 
 p, a, li, label {
     color: whitesmoke;
-    font-size: 1.5vw;
+    font-size: clamp(1.5vh, 1.5vw, 2vw);
 }
 
 .Hero > div > p {
@@ -154,3 +154,31 @@ iframe {
 .About > p {
     margin: 20px;
 }
+
+.Blade {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 0px;
+    flex-direction: row;
+}
+
+.Project {
+    border: solid 2px;
+    border-color: dimgray;
+    height: 400px;
+    grid-column: span 1;
+    grid-row: span 1;
+    text-align: center;
+    padding: 15px;
+}
+
+.Project > p {
+    text-align: start;
+}
+
+.Header {
+    min-height: 50px;
+    color: whitesmoke;
+}
+
