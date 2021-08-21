@@ -134,9 +134,6 @@ a:visited {
     color: dimgray;
 }
 
-nav > ul > li > a {
-    &:visited {
-               color: whitesmoke;
-             }
+nav > ul > li > a:hover, nav > ul > li > a:visited, nav > ul > li > a:active, nav > ul > li > a:link {
     color: whitesmoke;
 }
