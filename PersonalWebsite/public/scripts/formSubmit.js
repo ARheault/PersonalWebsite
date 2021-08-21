@@ -5,17 +5,17 @@ form.addEventListener("submit", handleSubmit);
 async function handleSubmit(event) {
     event.preventDefault();
 
-    let _First = document.querySelector("#_First").value;
-    let _Last = document.querySelector("#_Last").value;
-    let _Email = document.querySelector("#_Email").value;
-    let _Message = document.querySelector("#_Message").value;
+    let _First = document.querySelector("#First").value;
+    let _Last = document.querySelector("#Last").value;
+    let _Email = document.querySelector("#Email").value;
+    let _Message = document.querySelector("#Message").value;
     let _Pronouns = get_Pronouns();
     console.group("========= Form Submission =========");
-    console.log(`_First Name: ${_First}`);
-    console.log(`_Last Name: ${_Last}`);
-    console.log(`_Email: ${_Email}`);
-    console.log(`_Pronouns: ${_Pronouns}`);
-    console.log(`_Message: ${_Message}`);
+    console.log(`First Name: ${_First}`);
+    console.log(`Last Name: ${_Last}`);
+    console.log(`Email: ${_Email}`);
+    console.log(`Pronouns: ${_Pronouns}`);
+    console.log(`Message: ${_Message}`);
     console.groupEnd("===================================");
 
     const submission = {
