@@ -2,6 +2,20 @@ const express = require("express");
 const path = require("path");
 const nodeMailer = require('nodemailer');
 require('dotenv').config();
+const { google } = require("googleapis");
+const { oauth2 } = require("googleapis/build/src/apis/oauth2");
+const OAuth2 = google.auth.OAuth2;
+
+const oauth2Client = new OAuth2(
+    process.env.CLIENTID,
+    process.env.CLIENTSECRET,
+    process.env.REDIRECT
+);
+
+oauth2Client.setCredentials({
+    refresh_token: process.env.REFRESHTOKEN
+});
+const accessToken = oauth2Client.getAccessToken();
 
 var port = process.env.PORT || 1337;
 
@@ -42,28 +56,31 @@ app.post('/SubmitContact', (req, res) => {
     let Mailing = nodeMailer.createTransport({
         service: "Gmail",
         auth: {
-            xoauth2: xoauth2.createXOAuth2Generator({
-                user: process.env.USER,
-                pass: process.env.PASS
-            })
+            type: "OAuth2",
+            user: process.env.USER,
+            clientId: process.env.CLIENTID,
+            clientSecret: process.env.CLIENTSECRET,
+            refreshToken: process.env.REFRESHTOKEN,
+            accessToken: accessToken
         }
     });
 
-    Mailing.sendMail({
+    const options = {
         from: data.Email,
         to: process.env.USER,
         subject: `${data.First}, ${data.Last} contact request`,
-        html: `${data.Pronouns}
-
-                ${data.Message}`
-    }, (err, res) => {
+        generateTextFromHTML: true,
+        html: data.Message
+    }
+    Mailing.sendMail(options, (err, res) => {
         if (err) {
-            console.log(err);
-        } else {
-            console.log("Contact Request Sent");
-        }
+            res.json({ err: `${err}`);
+            Mailing.close();
 
-        Mailing.close();
+        } else {
+            res.json({ success: "True" });
+            Mailing.close();
+        }
     });
 });
 
