@@ -9,6 +9,11 @@ const app = express();
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.static(path.join(__dirname, "public/css")));
 
+app.use(express.urlencoded({
+	extend: false,
+}));
+app.use(express.json());
+
 app.get('/', (req, res) => {
 	//	res.send("Run it");
 	res.sendFile(path.join(__dirname, "/public/index.html"));
@@ -30,6 +35,10 @@ app.get('/Contact', (req, res) => {
 	res.sendFile(path.join(__dirname, "public/contact.html"));
 })
 
+app.post('/SubmitContact', (req, res) => {
+	console.log('Form Submission:', req.body);
+	res.json({message: 'Recieved'})
+});
 
 const expressServer = app.listen(port, () => {
 	console.log("Server Started");
