@@ -39,11 +39,13 @@ app.get('/Contact', (req, res) => {
 app.post('/SubmitContact', (req, res) => {
     const data = req.body;
 
-    let Mailing = nodeMailer.createTransport("SMTP", {
+    let Mailing = nodeMailer.createTransport({
         service: "Gmail",
         auth: {
-            user: process.env.USER,
-            pass: process.env.PASS
+            xoauth2: xoauth2.createXOAuth2Generator({
+                user: process.env.USER,
+                pass: process.env.PASS
+            })
         }
     });
 
