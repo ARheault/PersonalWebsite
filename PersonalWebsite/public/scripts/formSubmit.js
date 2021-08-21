@@ -33,7 +33,7 @@ function handleSubmit(event) {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: submission
+            body: JSON.stringify(submission)
         });
 
         const response = await res.json();
