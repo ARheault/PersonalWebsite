@@ -1,8 +1,8 @@
 const express = require("express");
 const path = require("path");
-const nodeMailer = require('nodemailer');
+const nodeMailer = require("nodemailer");
 require('dotenv').config();
-const mailGun = require('nodemailer=mailgun-transport');
+const mailGun = require("nodemailer-mailgun-transport");
 
 const auth = {
     auth: {
