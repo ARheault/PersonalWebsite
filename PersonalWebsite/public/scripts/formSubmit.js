@@ -29,7 +29,6 @@ async function handleSubmit(event) {
     const res = await fetch("/SubmitContact", {
         method: "POST",
         headers: {
-            'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
