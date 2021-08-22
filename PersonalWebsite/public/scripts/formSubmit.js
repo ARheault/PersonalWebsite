@@ -26,7 +26,7 @@ async function handleSubmit(event) {
         _Message
     };
 
-    const res = await fetch("alexanderrheault.com/SubmitContact", {
+    const res = await fetch("/SubmitContact", {
         method: "POST",
         headers: {
             'Accept': 'application/json',
