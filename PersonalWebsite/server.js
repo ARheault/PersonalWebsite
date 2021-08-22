@@ -2,14 +2,11 @@ const express = require("express");
 const path = require("path");
 const nodeMailer = require("nodemailer");
 require('dotenv').config();
-const mailGun = require("nodemailer-mailgun-transport");
+const mailGun = require("mailgun-js");
+const bodyParser = require("body-parser");
 
-const auth = {
-    auth: {
-        api_key: process.env.APIKEY,
-        domain: process.env.DOMAIN
-    }
-};
+const mg = mailGun({apiKey: "4fe1fa9b089404263dd1fce483ed3333-9776af14-afb0d012", domain: "sandbox83363359caf348ae9e955696fd7ffdbd.mailgun.org"});
+
 var port = process.env.PORT || 1337;
 
 const app = express();
@@ -17,53 +14,54 @@ const app = express();
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.static(path.join(__dirname, "public/css")));
 
-app.use(express.urlencoded({
-    extend: false,
+/*app.use(express.urlencoded({
+	extend: false,
 }));
-app.use(express.json());
+app.use(express.json());*/
+app.use(bodyParser.urlencoded({
+	extended: true
+}));
+
+app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, "/public/index.html"));
+	res.sendFile(path.join(__dirname, "/public/index.html"));
 })
 
 app.get('/About', (req, res) => {
-    res.sendFile(path.join(__dirname, "public/about.html"));
+	res.sendFile(path.join(__dirname, "public/about.html"));
 })
 
 app.get('/Projects', (req, res) => {
-    res.sendFile(path.join(__dirname, "public/projects.html"));
+	res.sendFile(path.join(__dirname, "public/projects.html"));
 })
 
 app.get('/Resume', (req, res) => {
-    res.sendFile(path.join(__dirname, "public/resume.html"));
+	res.sendFile(path.join(__dirname, "public/resume.html"));
 })
 
 app.get('/Contact', (req, res) => {
-    res.sendFile(path.join(__dirname, "public/contact.html"));
+	res.sendFile(path.join(__dirname, "public/contact.html"));
 })
 
 app.post('/SubmitContact', (req, res) => {
-    const data = req.body;
+	const mailgun = require("mailgun-js");
+	const DOMAIN = "sandbox83363359caf348ae9e955696fd7ffdbd.mailgun.org"; 
+	const mg = mailgun({apiKey: "4fe1fa9b089404263dd1fce483ed3333-9776af14-afb0d012", domain: DOMAIN});
+	const data = req.body.submission;
 
-    let transport = nodeMailer.createTransport(mailGun(auth));
-
-    const mailOptions = {
-        sender: data._First + ", " + data._Last,
-        from: data._Email,
-        to: process.env.EMAIL,
-        subject: data._First + ", " + data._Last + " From Website",
-        text: text
-    };
-
-    transport.sendMail(mailOptions, (err, data) => {
-        if (err) {
-            return res.json("Error: " + err);
-        } else {
-            return res.json("Success");
-        }
-    });
-});
+	const mail = {
+		from: data._Email,
+		to: "alexdrheault@gmail.com",
+		subject: data._First + "\, " + data._Last + " (" + data._Pronouns + ")\,",
+		text: "Message from " + data._First + "\," + data._Last + " (" + data._Pronouns + ")\,\n\n" + data._Message + "\n\n Sent from personal website emailer: " + data._Email
+	};
+	mg.messages().send(mail, function (error, body) {
+		console.log(body);
+		return res.json("Email Queued");
+	});
+})
 
 const expressServer = app.listen(port, () => {
-    console.log("Server Started");
+	console.log("Server Started");
 })
