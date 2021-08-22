@@ -52,7 +52,8 @@ app.get('/Contact', (req, res) => {
 
 app.post('/SubmitContact', (req, res) => {
     const data = req.body;
-
+    res.send("recieved");
+/*
     let Mailing = nodeMailer.createTransport({
         service: "Gmail",
         auth: {
@@ -81,7 +82,7 @@ app.post('/SubmitContact', (req, res) => {
             res.json({ success: "True" });
             Mailing.close();
         }
-    });
+    }); */
 });
 
 const expressServer = app.listen(port, () => {
