@@ -32,13 +32,9 @@ async function handleSubmit(event) {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
-        body: {
-            First: _First,
-            Last: _Last,
-            Email: _Email,
-            Pronouns: _Pronouns,
-            Message: _Message
-        }
+        body: JSON.stringify({
+            submission
+        })
     })
         .then((response) => {
             return response.json();
