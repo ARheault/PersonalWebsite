@@ -42,6 +42,7 @@ async function handleSubmit(event) {
             console.log(result);
         })
         .catch((err) => console.log(err));
+    window.location.href("alexanderrheault.com");
 }
 
 let getPronouns = () => {

@@ -11,7 +11,7 @@ const auth = {
         domain: process.env.DOMAIN
     }
 };
-var port = process.env.PORT || 1337;
+var port = process.env.PORT || 8000;
 
 const app = express();
 
