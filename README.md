@@ -28,7 +28,7 @@ Now initialize the git repository using the command "git init"
 
 Now head to the github page for this project and navigate to the stable branch of your choosing and click where the mouse is hovering in the following screenshot:
 
-![image](https://user-images.githubusercontent.com/71666828/120891307-b3714300-c5bc-11eb-80f3-d069cadb14ec.png)
+![image](https://i.imgur.com/dQUpXUi.png)
 
 Now back to your Visual Studio Code window where you will enter the following command "git clone https://github.com/ARheault/GameAtlas.git".
 Note, you can either copy paste it from here or type git clone and press control v to paste the value we copied in the previous step.
