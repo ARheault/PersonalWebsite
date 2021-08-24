@@ -36,3 +36,12 @@ Note, you can either copy paste it from here or type git clone and press control
 ![image](https://i.imgur.com/Y6SuF1L.png)
 
 Now you've cloned the project! Only two more steps!
+
+First use cd to move into the directory of the repository.
+
+Next enter npm i
+
+Lastly you will cd into the the next level down at PersonalWebsite/PersonalWebsite and enter npm i again.
+
+After this you should be able to enter "node server.js" and it will start the server locally!
+
