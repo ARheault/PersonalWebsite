@@ -33,6 +33,6 @@ Now head to the github page for this project and navigate to the stable branch o
 Now back to your Visual Studio Code window where you will enter the following command "git clone https://github.com/ARheault/GameAtlas.git".
 Note, you can either copy paste it from here or type git clone and press control v to paste the value we copied in the previous step.
 
-![image](https://user-images.githubusercontent.com/71666828/120891394-4dd18680-c5bd-11eb-89ee-982156d170e6.png)
+![image](https://i.imgur.com/Y6SuF1L.png)
 
 Now you've cloned the project! Only two more steps!
