@@ -11,7 +11,7 @@ Email = process.env.EMAIL;
 
 const mg = mailGun({apiKey: api_key, domain: Domain});
 
-var port = process.env.PORT || 1337;
+var port = process.env.PORT || 8000;
 
 const app = express();
 
