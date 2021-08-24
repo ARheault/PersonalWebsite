@@ -2,15 +2,28 @@ const express = require("express");
 const path = require("path");
 const nodeMailer = require("nodemailer");
 const mailGun = require("nodemailer-mailgun-transport");
-
+const fs = require("fs");
 require('dotenv').config();
 
-const auth = {
-    auth: {
-        api_key: process.env.APIKEY,
-        domain: process.env.DOMAIN
+let isLocal = true;
+let auth;
+
+try {
+    if (fs.existsSync("./.env")) {
+        isLocal = false;
     }
-};
+
+    auth = {
+        auth: {
+            api_key: process.env.APIKEY,
+            domain: process.env.DOMAIN
+        }
+    };
+}
+catch (err) {
+    console.log("Server running locally.");
+}
+
 var port = process.env.PORT || 8000;
 
 const app = express();
@@ -44,25 +57,30 @@ app.get('/Contact', (req, res) => {
 })
 
 app.post('/SubmitContact', (req, res) => {
-    const data = req.body;
+    if (!isLocal) {
+        const data = req.body;
 
-    let transport = nodeMailer.createTransport(mailGun(auth));
+        let transport = nodeMailer.createTransport(mailGun(auth));
 
-    const mailOptions = {
-        sender: data._First + ", " + data._Last,
-        from: data._Email,
-        to: process.env.EMAIL,
-        subject: data._First + ", " + data._Last + " From Website",
-        text: text
-    };
+        const mailOptions = {
+            sender: data._First + ", " + data._Last,
+            from: data._Email,
+            to: process.env.EMAIL,
+            subject: data._First + ", " + data._Last + " From Website",
+            text: text
+        };
 
-    transport.sendMail(mailOptions, (err, data) => {
-        if (err) {
-            return res.json("Error: " + err);
-        } else {
-            return res.json("Success");
-        }
-    });
+        transport.sendMail(mailOptions, (err, data) => {
+            if (err) {
+                return res.json("Error: " + err);
+            } else {
+                return res.json("Success");
+            }
+        });
+    }
+    else {
+        return res.json("Server local, no email sent");
+    }
 });
 
 const expressServer = app.listen(port, () => {
