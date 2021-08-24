@@ -1,11 +1,15 @@
 const express = require("express");
 const path = require("path");
 const nodeMailer = require("nodemailer");
-require('dotenv').config();
 const mailGun = require("mailgun-js");
 const bodyParser = require("body-parser");
+require('dotenv').config({path: __dirname + "/.env"});
 
-const mg = mailGun({apiKey: "4fe1fa9b089404263dd1fce483ed3333-9776af14-afb0d012", domain: "sandbox83363359caf348ae9e955696fd7ffdbd.mailgun.org"});
+api_key = process.env.APIKEY;
+Domain = process.env.DOMAIN;
+Email = process.env.EMAIL;
+
+const mg = mailGun({apiKey: api_key, domain: Domain});
 
 var port = process.env.PORT || 1337;
 
@@ -52,7 +56,7 @@ app.post('/SubmitContact', (req, res) => {
 
 	const mail = {
 		from: data._Email,
-		to: "alexdrheault@gmail.com",
+		to: Email,
 		subject: data._First + "\, " + data._Last + " (" + data._Pronouns + ")\,",
 		text: "Message from " + data._First + "\," + data._Last + " (" + data._Pronouns + ")\,\n\n" + data._Message + "\n\n Sent from personal website emailer: " + data._Email
 	};
